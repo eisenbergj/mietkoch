@@ -1,0 +1,494 @@
+:root {
+  --main-color: white;
+  /* Tomato Red */
+  --accent-color: #d6e8d5;
+  /* Lime Green */
+  --background-color: rgb(231, 223, 223);
+  /* Ghost White */
+  --text-color: #333333;
+  /* Dark Gray */
+  --highlight-color: #FFD700;
+  /* Gold */
+  --button-color: #d6e8d5;
+  --active-color: #d6e8d5;
+  --super-active-color: #268b92;
+  --close-color: black;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  /* base size for the whole document */
+}
+
+.css-tabs {
+  max-width: 50%;
+  margin: 1.5rem auto;
+  font-family: inherit;
+  margin: 1.5rem 0.7rem;
+}
+
+.css-tabs input[type="radio"] {
+  display: none;
+}
+
+.css-tabs .tabs-nav {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+.css-tabs .tabs-nav label {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  transition: background .15s, color .15s;
+}
+
+.css-tabs .tab-label {
+  color: #0b1220;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  margin-bottom: 1rem;
+}
+
+.css-tabs .tab-labels .tab-label {
+  font-weight: normal;
+  cursor: pointer;
+  background: #f3f6fa;
+  border-color: #e6edf3;
+  border-bottom: none;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px 6px 0 0;
+  transition: background .15s, color .15s, box-shadow .15s;
+}
+
+/* focus style for keyboard users */
+.css-tabs .tab-label:focus {
+  outline: 2px solid rgba(59, 130, 246, 0.35);
+  outline-offset: 3px;
+  border-radius: 6px 6px 0 0;
+}
+
+.css-tabs .tabs-nav label:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* active/selected tab styles (merged) */
+.css-tabs input[type="radio"]:checked+label,
+#tab-team:checked~.tab-labels label[for="tab-team"],
+#tab-catering:checked~.tab-labels label[for="tab-catering"],
+#tab-about-us:checked~.tab-labels label[for="tab-about-us"] {
+  background: #fff;
+  border-color: #e0e0e0;
+  box-shadow: 0 -2px 0 0 #fff inset;
+  font-weight: 600;
+}
+
+.css-tabs .tabs-panels {
+  /* border: 1px solid #e0e0e0; */
+  padding: 1rem;
+  border-radius: 0 6px 6px 6px;
+  background: none;
+}
+
+.css-tabs .panel {
+  display: none;
+}
+
+#tab-team:checked~.tabs-panels #panel-team,
+#tab-catering:checked~.tabs-panels #panel-catering,
+#tab-about-us:checked~.tabs-panels #panel-about-us {
+  display: block;
+}
+
+/* Responsive: stack labels on small screens */
+@media (max-width: 520px) {
+  .css-tabs .tabs-nav {
+    flex-direction: column;
+  }
+
+  .css-tabs .tabs-nav label {
+    border-radius: 6px;
+  }
+}
+
+blockquote.quote {
+  font-style: italic;
+  line-height: 1.45;
+  color: #2b2b2b;
+
+  background: #fff8f3;
+  /* subtle warm background */
+  border-left: 4px solid #c94c4c;
+  /* accent color */
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+blockquote.quote p {
+  margin: 0;
+  /* remove default paragraph spacing inside the quote */
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  blockquote.quote {
+    padding: 0.75rem 1rem;
+  }
+}
+
+blockquote {
+  font-weight: 100;
+  line-height: 1.4;
+  position: relative;
+  margin: auto;
+  font-size: larger;
+  /* padding: .5rem; */
+}
+
+blockquote:before,
+blockquote:after {
+  position: absolute;
+  color: #f1efe6;
+  width: 4rem;
+  height: 4rem;
+}
+
+blockquote:before {
+  content: '“';
+  left: -5rem;
+  top: -2rem;
+}
+
+blockquote:after {
+  content: '”';
+  right: -5rem;
+  bottom: 1rem;
+}
+
+cite {
+  line-height: 3;
+  text-align: left;
+}
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  
+  /* Bildquelle */
+  background-image: url('bilder/260203/pizza/margerita_mit_splash.png');
+  
+  /* Positionierung: Rechts unten fixieren */
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  
+  /* Die Magie: Auf kleinen Screens 70%, auf großen maximal eine feste Pixelzahl */
+  background-size: clamp(300px, 70%, 1000px);
+}
+
+#tab-about-us:checked~.page-bg {
+  /* Change the background properties here */
+  background-image: url('me.png');
+  /* Replace with your desired image path */
+  background-size: 40%;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  /* You can also change position, size, etc. if needed */
+  background-position: center right;
+  margin: auto;
+  margin-right: 3rem;
+  /*background-size: cover; */
+}
+
+
+.info-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.info-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  column-gap: 12px;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.info-label {
+  background: url('pizza.png') left center no-repeat;
+  background-size: 20px 20px;
+  padding-left: 30px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.info-value {
+  font-weight: 300;
+}
+
+/* attention-grabbing contact button fixed to bottom center */
+.contact-button {
+  position: fixed;
+  left: 60%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 1100;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #111;
+  background: linear-gradient(90deg, #ff416c 0%, #ff8a00 50%, #ffd200 100%);
+  box-shadow: 0 10px 30px rgba(255, 138, 0, 0.18), 0 3px 8px rgba(0, 0, 0, 0.18);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: transform .18s cubic-bezier(.2, .9, .2, 1), box-shadow .18s, filter .18s;
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform, box-shadow;
+  animation: float 3s ease-in-out infinite, pulse-glow 1.8s ease-in-out infinite;
+}
+
+/* small arrow that nudges to the right */
+.contact-button::after {
+  content: '@';
+  display: inline-block;
+  margin-left: .4rem;
+  font-size: 1.05em;
+  transform-origin: 50% 50%;
+  animation: arrow-nudge 1.4s ease-in-out infinite;
+}
+
+/* hover / active / focus */
+.contact-button:hover,
+.contact-button:focus {
+  transform: translateX(-50%) scale(1.04);
+  box-shadow: 0 18px 40px rgba(255, 138, 0, 0.26), 0 6px 16px rgba(0, 0, 0, 0.2);
+  outline: none;
+  filter: saturate(1.06);
+}
+
+.contact-button:active {
+  transform: translateX(-50%) scale(.98);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* keyboard focus ring */
+.contact-button:focus-visible {
+  box-shadow: 0 12px 30px rgba(255, 138, 0, 0.22), 0 0 0 4px rgba(255, 138, 0, 0.12);
+}
+
+/* animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    filter: drop-shadow(0 6px 18px rgba(255, 138, 0, 0.12));
+  }
+
+  50% {
+    filter: drop-shadow(0 12px 34px rgba(255, 138, 0, 0.22));
+  }
+
+  100% {
+    filter: drop-shadow(0 6px 18px rgba(255, 138, 0, 0.12));
+  }
+}
+
+@keyframes arrow-nudge {
+  0% {
+    transform: translateX(0);
+    opacity: 0.95;
+  }
+
+  50% {
+    transform: translateX(6px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 0.95;
+  }
+}
+
+/* responsive: reduce size on very small screens */
+@media (max-width: 420px) {
+  .contact-button {
+    bottom: 12px;
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .contact-button::after {
+    margin-left: .35rem;
+  }
+}
+
+.quote {
+  font-size: 1.2rem;
+  margin: 1rem;
+  font-style: italic;
+}
+
+.author {
+  text-align: right;
+  margin-right: 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* --- Impressum Footer Styling --- */
+#site-footer {
+  /* Fixed position am unteren Rand des Viewports */
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  /* Dunkler Hintergrund */
+  background-color: #222;
+  padding: 10px 20px;
+  z-index: 1000;
+  /* Stellt sicher, dass er über dem Inhalt liegt */
+  text-align: center;
+}
+
+/* Stil für den Impressum-Link */
+.impressum-link {
+  color: #fff;
+  /* Weiße Schrift für den Kontrast */
+  text-decoration: none;
+  font-size: 0.9em;
+  padding: 5px 10px;
+  display: inline-block;
+}
+
+.impressum-link:hover {
+  text-decoration: underline;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--super-active-color);
+  /* Pizza-Rot */
+  color: #ffffff !important;
+  padding: 14px 28px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: var(--super-active-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta-text {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 600px;
+  /* Breite eines Posts */
+  margin: 0 auto;
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.insta-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.insta-item {
+  min-width: 100%;
+  /* Jeder Post nimmt die volle Breite des Containers ein */
+  display: flex;
+  justify-content: center;
+}
+
+/* Styling für die Buttons */
+.prev-btn,
+.next-btn {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+.prev-btn {
+  left: -50px;
+}
+
+.next-btn {
+  right: -50px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background-color: #000;
+}
+
+/* Responsive: Wenn der Bildschirm zu klein ist, Buttons nach innen schieben */
+@media (max-width: 700px) {
+  .prev-btn {
+    left: 5px;
+  }
+
+  .next-btn {
+    right: 5px;
+  }
+}
