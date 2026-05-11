@@ -10,7 +10,7 @@
   --highlight-color: #FFD700;
   /* Gold */
   --button-color: #d6e8d5;
-  --active-color: #d6e8d5;
+  --active-color: #c6d88d;
   --super-active-color: #268b92;
   --close-color: black;
 }
@@ -38,24 +38,30 @@ body {
   border-bottom: 2px solid #e5e5e5;
 }
 
-.css-tabs .tabs-nav label {
-  padding: 0.6rem 1rem;
-  cursor: pointer;
-  user-select: none;
-  background: transparent;
-  border: 1px solid transparent;
-  border-bottom: none;
-  border-radius: 6px 6px 0 0;
-  transition: background .15s, color .15s;
+.css-tabs .tab-labels {
+  display: flex;
+  justify-content: left; /* Zentriert die Tabs */
+  gap: 8px;
+  margin-bottom: -1px; /* Sorgt für einen nahtlosen Übergang zum Inhalt */
 }
 
 .css-tabs .tab-label {
-  color: #0b1220;
+  padding: 12px 24px;
+  cursor: pointer;
+  background: #f1f3f5; /* Ein etwas weicheres Grau */
+  border: 1px solid #e9ecef;
+  border-bottom: none;
+  border-radius: 12px 12px 0 0; /* Schönere Rundungen */
   font-weight: 500;
-  letter-spacing: 0.2px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
-  margin-bottom: 1rem;
+  color: #333333;
+  transition: all 0.2s ease;
+  text-align: center;
+  box-shadow: none; /* Wir entfernen den alten Schatten für einen flacheren Look */
+}
+
+.css-tabs .tab-label:hover {
+  background: #e9ecef;
+  color: var(--super-active-color);
 }
 
 .css-tabs .tab-labels .tab-label {
@@ -77,19 +83,16 @@ body {
   border-radius: 6px 6px 0 0;
 }
 
-.css-tabs .tabs-nav label:hover {
-  background: rgba(0, 0, 0, 0.03);
-}
-
-/* active/selected tab styles (merged) */
-.css-tabs input[type="radio"]:checked+label,
-#tab-team:checked~.tab-labels label[for="tab-team"],
-#tab-catering:checked~.tab-labels label[for="tab-catering"],
-#tab-about-us:checked~.tab-labels label[for="tab-about-us"] {
+/* Aktive/Ausgewählte Tab-Styles */
+#tab-team:checked ~ .tab-labels label[for="tab-team"],
+#tab-catering:checked ~ .tab-labels label[for="tab-catering"],
+#tab-about-us:checked ~ .tab-labels label[for="tab-about-us"] {
   background: #fff;
-  border-color: #e0e0e0;
-  box-shadow: 0 -2px 0 0 #fff inset;
+  color: var(--super-active-color);
   font-weight: 600;
+  border-top: 3px solid var(--super-active-color); /* Deine Markenfarbe als Akzent-Linie */
+  border-color: #e0e0e0 #e0e0e0 transparent #e0e0e0; /* Rahmen nur unten offen */
+  padding-top: 10px; /* Gleicht die 3px border aus, damit die Höhe gleich bleibt */
 }
 
 .css-tabs .tabs-panels {
@@ -186,14 +189,14 @@ cite {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  
+
   /* Bildquelle */
   background-image: url('bilder/260203/pizza/margerita_mit_splash.png');
-  
+
   /* Positionierung: Rechts unten fixieren */
   background-repeat: no-repeat;
   background-position: right bottom;
-  
+
   /* Die Magie: Auf kleinen Screens 70%, auf großen maximal eine feste Pixelzahl */
   background-size: clamp(300px, 70%, 1000px);
 }
@@ -216,29 +219,44 @@ cite {
 
 
 .info-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  display: grid;
+  gap: 12px; /* Abstand zwischen den Kärtchen */
+  margin-top: 1.5rem;
 }
 
 .info-item {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  column-gap: 12px;
-  align-items: center;
-  padding: 6px 0;
+  display: flex;
+  /* padding: 15px; */
+  margin: 0;
+  border-radius: 8px;
+}
+
+/* Jeder zweite Eintrag bekommt einen ganz zarten grünen Schimmer (dein --accent-color) */
+.info-item:nth-child(even) {
+  background-color: rgba(214, 232, 213, 0.3); 
+}
+
+.info-item:hover {
+  transform: translateX(5px); /* Kleiner "Slide-In" Effekt beim Drüberfahren */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-color: var(--accent-color);
 }
 
 .info-label {
-  background: url('pizza.png') left center no-repeat;
-  background-size: 20px 20px;
-  padding-left: 30px;
-  white-space: nowrap;
+  flex: 0 0 160px; /* Feste Breite für die Beschriftung */
   font-weight: 600;
+  color:black;
+  background: url('pizza.png') left center no-repeat;
+  background-size: 22px;
+  padding-left: 35px; /* Mehr Platz für das Icon */
 }
 
 .info-value {
-  font-weight: 300;
+  flex: 1;
+  font-weight: 400;
+  color: #555;
+  border-left: 1px solid #eee; /* Trennlinie zwischen Label und Wert */
+  /* padding-left: 15px; */
 }
 
 .contact-section {
@@ -432,127 +450,154 @@ cite {
 }
 
 .carousel-container {
-    position: relative;
-    width: 50%;
-    max-width: 500px;
-    margin: 20px auto;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  position: relative;
+  width: 90%; /* Increased for better mobile visibility */
+  max-width: 500px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  /* Ensure the container itself has a solid background while loading */
+  background-color: #f0f0f0; 
 }
 
 .insta-slider {
-    display: flex;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .insta-item {
-    min-width: 100%;
+  min-width: 100%;
+}
+
+.insta-item a {
+  display: block;
+  text-decoration: none;
+  overflow: hidden; /* Keeps the zoom effect inside the rounded corners */
+}
+
+.slider-img:hover {
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
 }
 
 .slider-img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  /* This forces all images (portrait or landscape) into a perfect square */
+  aspect-ratio: 1 / 1; 
+  
+  /* This crops the image to fill the square without stretching */
+  object-fit: cover; 
+  
+  /* Ensures the 'meat' of the photo (the pizza) stays centered */
+  object-position: center; 
+  
+  display: block;
+  transition: opacity 0.3s ease;
 }
 
 /* Navigation Buttons */
 .nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 20px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-btn:hover {
-    background: rgba(255, 255, 255, 0.9);
-    color: #000;
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
 }
 
-.prev { left: 15px; }
-.next { right: 15px; }
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
 
 /* Dots Navigation */
 .dots-container {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 10;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .dot.active {
-    background: white;
-    transform: scale(1.4);
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  background: white;
+  transform: scale(1.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .insta-cta {
-    margin-top: 2rem;
-    padding: 2rem;
-    text-align: center;
-    background: #f9f9f9; /* Dezenter Hintergrund */
-    border-radius: 12px;
+  margin-top: 2rem;
+  padding: 2rem;
+  text-align: center;
+  background: #f9f9f9;
+  /* Dezenter Hintergrund */
+  border-radius: 12px;
 }
 
 .insta-cta p {
-    font-weight: bold;
-    margin-bottom: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .insta-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 24px;
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-    color: white !important;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white !important;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .insta-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(188, 24, 136, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(188, 24, 136, 0.4);
 }
 
 .insta-link i {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 /* Page-BG auf Mobile ausblenden */
 @media (max-width: 768px) {
-    .page-bg {
-        display: none !important;
-    }
+  .page-bg {
+    display: none !important;
+  }
 }
 
 /* Page-BG auf Mobile ausblenden */
@@ -563,74 +608,352 @@ cite {
 } */
 
 #site-header header {
-    display: flex;
-    justify-content: center; /* Zentriert das Logo */
-    padding: 20px;
+  display: flex;
+  justify-content: left;
+  /* Zentriert das Logo */
+  padding: 20px;
 }
 
 .shop-icon {
-    /* Skaliert das Bild auf 80% der Bildschirmbreite bei kleinen Geräten */
-    width: 80%; 
-    
-    /* Verhindert, dass das Logo auf riesigen Bildschirmen gigantisch wird */
-    /* Setze hier die reale Breite deines Logos ein, z.B. 300px oder 400px */
-    max-width: 350px; 
-    
-    /* Sorgt dafür, dass die Proportionen beim Skalieren erhalten bleiben */
-    height: auto; 
-    
-    /* Verbessert die Darstellung beim Skalieren */
-    display: block;
+  /* Skaliert das Bild auf 80% der Bildschirmbreite bei kleinen Geräten */
+  width: 80%;
+
+  /* Verhindert, dass das Logo auf riesigen Bildschirmen gigantisch wird */
+  /* Setze hier die reale Breite deines Logos ein, z.B. 300px oder 400px */
+  max-width: 350px;
+
+  /* Sorgt dafür, dass die Proportionen beim Skalieren erhalten bleiben */
+  height: auto;
+
+  /* Verbessert die Darstellung beim Skalieren */
+  display: block;
 }
 
 /* Optional: Auf sehr kleinen Handys etwas mehr Platz geben */
 @media (max-width: 480px) {
-    .shop-icon {
-        width: 90%;
-    }
+  .shop-icon {
+    width: 90%;
+  }
 }
 
-p, .lead, .info-value {
-    /* Erlaubt Zeilenumbrüche innerhalb von Wörtern, wenn nötig */
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    
-    /* Verhindert, dass der Text den Container verlässt */
-    word-break: normal; 
+p,
+.lead,
+.info-value {
+  /* Erlaubt Zeilenumbrüche innerhalb von Wörtern, wenn nötig */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  /* max-width: 70%; */
+
+  /* Verhindert, dass der Text den Container verlässt */
+  word-break: normal;
 }
 
 .lead {
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-    text-align: left; /* oder justify, falls gewünscht */
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  text-align: left;
+  /* oder justify, falls gewünscht */
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .info-item {
-    /* Erlaubt dem Inhalt, auf mehrere Zeilen zu gehen */
-    display: flex;
-    flex-wrap: wrap; 
-    align-items: flex-start;
-    gap: 5px;
-    width: 100%;
+  /* Erlaubt dem Inhalt, auf mehrere Zeilen zu gehen */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 5px;
+  width: 100%;
 }
 
 .info-label.info-value {
-    /* Das ist die Klasse, die du im HTML für die Kursinhalte nutzt */
-    display: inline-block;
-    max-width: 100%;
-    
-    /* Der entscheidende Teil: */
-    overflow-wrap: break-word;  /* Bricht lange Wörter */
-    white-space: normal;       /* Erlaubt normale Zeilenumbrüche */
-    line-height: 1.4;          /* Bessere Lesbarkeit bei Mehrzeiligkeit */
+  /* Das ist die Klasse, die du im HTML für die Kursinhalte nutzt */
+  display: inline-block;
+  max-width: 90%;
+
+  /* Der entscheidende Teil: */
+  overflow-wrap: break-word;
+  /* Bricht lange Wörter */
+  white-space: normal;
+  /* Erlaubt normale Zeilenumbrüche */
+  line-height: 1.4;
+  /* Bessere Lesbarkeit bei Mehrzeiligkeit */
 }
 
 /* Speziell für den ersten Punkt, falls er immer noch zickt */
 .info-list li {
-    overflow: hidden; /* Sicherung nach außen */
+  overflow: hidden;
+  /* Sicherung nach außen */
+}
+
+@media (max-width: 480px) {
+  .tab-label {
+    font-size: 0.85rem;
+    /* Etwas kleinere Schrift */
+    padding: 10px 5px;
+    /* Weniger seitlicher Abstand */
+    flex: 1;
+    /* Alle Labels nehmen gleich viel Platz ein */
+    text-align: center;
+  }
+
+  .tab-labels {
+    display: flex;
+    justify-content: space-between;
+    gap: 2px;
+  }
+}
+
+/* Highlight Box Styling */
+.highlight-box {
+  background-color: var(--active-color);
+  border-left: 4px solid var(--accent-color);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  align-items: center;
+  width: 90%;
+}
+
+.highlight-box p {
+  margin: 0;
+  color: var(--text-color);
+  font-weight: bold;
+  text-align: center;
+  align-items: center;
+}
+
+/* Modal Hintergrund */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+/* Modal Box */
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #888;
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+#contactForm label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 0.9em;
+  text-align: left;
+  /* Sorgt dafür, dass die Beschriftung im Formular linksbündig bleibt */
+  color: var(--text-color);
+}
+
+#contactForm .cta-button {
+  animation: none;
+  /* Verhindert das "Hüpfen" im Formular */
+  width: 100%;
+  /* Macht den Button im Formular schön breit */
+  margin-top: 20px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #e63946;
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+input[readonly] {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  border-color: #eee;
+  color: #666;
+}
+
+/* Optimierung für die schmalen Reihen im Modal */
+@media (max-width: 400px) {
+  .form-row {
+    flex-direction: row;
+    /* Behält PLZ/Stadt nebeneinander auch auf Mobile */
+    flex-wrap: wrap;
+  }
+}
+
+/* Markiert ungültige Felder, wenn der User bereits interagiert hat */
+input:focus:invalid {
+  border-color: #ff4d4d;
+  box-shadow: 0 0 5px rgba(255, 77, 77, 0.2);
+}
+
+/* Stil für den Upload-Bereich */
+.upload-wrapper {
+  background: #f9f9f9;
+  border: 1px dashed #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#kitchen_img {
+  font-size: 0.8rem;
+}
+
+/* Mobile Optimierung für das Formular */
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95%;
+    margin: 2% auto;
+    padding: 20px;
+    max-height: 95vh;
+    overflow-y: auto;
+    /* Erlaubt Scrollen innerhalb des Modals auf kleinen Handys */
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+    /* Verhindert das automatische Zoomen bei iOS */
+    padding: 15px;
+    /* Größere Touch-Fläche */
+  }
+
+  .form-row {
+    flex-direction: column;
+    /* Stapelt Felder auf Mobile */
+    gap: 0;
+  }
+
+  .form-row .form-group {
+    width: 100% !important;
+    /* Überschreibt die 30%/70% Aufteilung */
+  }
+}
+
+/* Animation für die Modals */
+.modal-content {
+  background-color: #fff;
+    margin: 2% auto; /* Kleinerer Abstand nach oben auf Mobile */
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    
+    /* SCROLL-LOGIK */
+    max-height: 90vh;    /* Maximal 90% der Bildschirmhöhe */
+    overflow-y: auto;    /* Zeigt Scrollbar nur wenn nötig an */
+    scrollbar-width: thin; /* Schicke, schmale Scrollbar für Firefox */
+}
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: var(--super-active-color);
+    border-radius: 10px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.honeypot-field {
+  display: none !important;
+  visibility: hidden;
+}
+
+/* Fix für Mobile: Verhindert, dass das Modal hinter der Tastatur verschwindet */
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 20px;
+    margin: 10px auto;
+    width: 95%;
+  }
+}
+
+#workshop-details, #oven-question-container {
+    transition: all 0.3s ease-in-out;
+}
+
+.impressum-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    line-height: 1.6;
+    color: #2d3436; /* Dein dunkles Grau */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Oder deine gewählte Font */
+}
+
+.impressum-container h1, .impressum-container h2 {
+    color: #d35400; /* Dein Teigtraum-Orange/Braun */
+    margin-top: 1.5em;
+}
+
+#impressum-footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #eee;
 }
