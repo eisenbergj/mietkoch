@@ -1,0 +1,3 @@
+<Files ~ "^\.git">
+  Deny from all
+</Files>

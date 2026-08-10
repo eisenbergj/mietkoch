@@ -21,6 +21,52 @@ body {
   /* base size for the whole document */
 }
 
+/* Language Selector Styles */
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  padding-right: 1rem;
+}
+
+.language-selector .lang-link {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.language-selector .lang-link:hover {
+  background-color: var(--accent-color);
+  color: var(--super-active-color);
+}
+
+.language-selector .lang-link.active {
+  background-color: var(--accent-color);
+  font-weight: 600;
+  color: var(--super-active-color);
+}
+
+.language-selector .lang-divider {
+  color: #ddd;
+  font-weight: 300;
+}
+
+@media (max-width: 600px) {
+  .language-selector {
+    font-size: 0.8rem;
+    padding-right: 0.5rem;
+    gap: 4px;
+  }
+  
+  .language-selector .lang-link {
+    padding: 4px 6px;
+  }
+}
+
 .css-tabs {
   max-width: 600px;
   margin: 1.5rem auto;
@@ -261,7 +307,42 @@ cite {
 
 .contact-section {
   margin-top: 2rem;
-  text-align: center;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.contact-section .cta-button {
+  margin: 0;
+}
+
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: var(--button-color);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.download-button:hover {
+  background-color: var(--active-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.download-button i {
+  font-size: 1.1em;
 }
 
 /* attention-grabbing contact button fixed to bottom center */
