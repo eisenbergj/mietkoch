@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Teigtraum Tübingen | Pizza Workshops & Catering for Events</title>
+
+    <meta name="description"
+        content="Learn to bake the perfect pizza! Teigtraum offers exclusive pizza workshops and live catering in Tübingen and surrounding areas. Ideal for team events and private celebrations.">
+
+    <meta name="keywords"
+        content="Pizza Workshop Tübingen, Pizza Catering, Team Building, Learn to bake pizza, Event Catering Tübingen">
+
+    <meta property="og:title" content="Teigtraum - Your Pizza Experience in Tübingen">
+    <meta property="og:description" content="Workshops & Catering for the perfect gourmet pizza right at your place.">
+    <meta property="og:image" content="Logo_TEIGTRAUM.png">
+
+    <link rel="stylesheet" href="styles.css" />
+    <link href="all.css" rel="stylesheet">
+    <script src="slider.js"></script>
+</head>
+
+<body>
+
+    <section id="site-header">
+        <header>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <img src="Logo_TEIGTRAUM.png" class="shop-icon">
+                <div class="language-selector">
+                    <a href="index.html" class="lang-link">🇩🇪 Deutsch</a>
+                    <span class="lang-divider">|</span>
+                    <span class="lang-link active">🇬🇧 English</span>
+                </div>
+            </div>
+        </header>
+        <h1 style="display:none;">Teigtraum: Pizza Workshops & Catering in Tübingen</h1>
+    </section>
+
+    <div id="page-shell"></div>
+
+    <footer id="site-footer">
+        <a href="impressum_en.html" class="impressum-link">Imprint</a> |
+        <a href="datenschutz_en.html" class="impressum-link">Privacy</a>
+    </footer>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Make an inquiry</h2>
+            <p>Let's plan your pizza dreams together.</p>
+
+            <form id="contactForm" action="https://formspree.io/f/xkovonjl" method="POST">
+                <div class="form-group">
+                    <label for="service">Interested in:*</label>
+                    <select id="service" name="service" required>
+                        <option value="Workshop">Pizza Workshop</option>
+                        <option value="Catering">Pizza Catering</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group" style="flex: 0 0 50%;">
+                        <label for="participants">For how many people:*</label>
+                        <input type="text" id="participants" name="participants" placeholder="e.g. 12" required>
+                    </div>
+                    <div class="form-group" style="flex: 0 0 50%;">
+                        <label for="event_date">Date:*</label>
+                        <input type="date" id="event_date" name="event_date" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name:*</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail:*</label>
+                        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group" style="flex: 0 0 30%;">
+                        <label for="zip">Postal code:*</label>
+                        <input type="text" id="zip" name="zip" maxlength="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" name="city" readonly tabindex="-1">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group" style="flex: 0 0 70%;">
+                        <label for="street">Street:*</label>
+                        <input type="text" id="street" name="street" placeholder="Example Street" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="house_number">No.:*</label>
+                        <input type="text" id="house_number" name="house_number" placeholder="42" required>
+                    </div>
+                </div>
+
+                <div id="workshop-details"
+                    style="display: none; background: #fff9f0; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid var(--super-active-color);">
+                    <h3 style="font-size: 1rem; margin-bottom: 10px;">Kitchen Check</h3>
+
+                    <div class="form-group">
+                        <label for="kitchen_size">How large is the kitchen approx. (in m²)?</label>
+                        <input type="number" id="kitchen_size" name="kitchen_size" placeholder="e.g. 6">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="kitchen_workarea">How large is the work surface approx. (in m²)?</label>
+                        <input type="number" id="kitchen_workarea" name="kitchen_workarea" placeholder="e.g. 4">
+                    </div>
+
+                    <div class="form-group" id="oven-question-container">
+                        <label>Is a standard household oven available?</label>
+                        <div style="display: flex; gap: 15px; margin-top: 5px;">
+                            <label style="font-weight: normal;"><input type="radio" name="household_oven" value="yes"> Yes</label>
+                            <label style="font-weight: normal;"><input type="radio" name="household_oven" value="no"> No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Short message (optional):</label>
+                    <textarea id="message" name="message" rows="3" placeholder="Ingredients, occasions, etc."></textarea>
+                </div>
+
+                <div class="honeypot-field" aria-hidden="true">
+                    <label for="honeypot_phone">Please write a story</label>
+                    <input type="text" id="honeypot_phone" name="honeypot_phone" tabindex="-1" autocomplete="off">
+                </div>
+
+                <div class="form-group" style="font-size: 0.85rem; color: #636e72; margin-top: 15px;">
+                    By submitting the inquiry, you agree to the processing of your data in accordance with our
+                    <a href="datenschutz_en.html" target="_blank">Privacy Policy</a>.
+                </div>
+
+                <button type="submit" id="submitBtn" class="cta-button" style="width: 100%; margin-top: 10px; animation: none;">Submit inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content" style="text-align: center; padding: 40px;">
+            <div class="status-icon" style="font-size: 60px; margin-bottom: 20px;">🍕</div>
+            <h2 style="color: #2d3436; margin-bottom: 15px;">Inquiry sent!</h2>
+            <p style="color: #636e72; line-height: 1.6;">Thank you! Your pizza inquiry has landed safely. I'll get back to you as soon as possible.</p>
+            <button onclick="document.getElementById('successModal').style.display='none'" class="cta-button" style="margin-top: 25px; width: 100%;">Great, see you soon!</button>
+        </div>
+    </div>
+
+    <div id="errorModal" class="modal">
+        <div class="modal-content" style="text-align: center; padding: 40px; border-top: 5px solid #ff7675;">
+            <div style="font-size: 60px; margin-bottom: 20px;">👨‍🍳💨</div>
+            <h2 style="color: #2d3436; margin-bottom: 15px;">Something's burning...</h2>
+            <p id="errorMessage" style="color: #636e72; line-height: 1.6;">Unfortunately there was an issue sending your inquiry. Please try again later or write to me directly via email.</p>
+            <button onclick="document.getElementById('errorModal').style.display='none'" class="cta-button" style="margin-top: 25px; width: 100%; background-color: #ff7675;">Close & try again</button>
+        </div>
+    </div>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FoodService",
+      "name": "Teigtraum Tübingen",
+      "description": "Pizza Workshops and Catering Service",
+      "provider": {
+        "@type": "Person",
+        "name": "Your Name"
+      },
+      "areaServed": "Tübingen, Germany",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Pizza Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pizza Workshop" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pizza Catering" } }
+        ]
+      }
+    }
+    </script>
+</body>
+</html>

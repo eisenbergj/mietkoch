@@ -1,0 +1,19 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const recipeTabs = Array.from(document.querySelectorAll('.recipe-nav-item'));
+        const recipePanels = Array.from(document.querySelectorAll('.recipe-panel'));
+        recipeTabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                const targetId = tab.getAttribute('data-recipe-target');
+                recipeTabs.forEach(function (item) {
+                    const isActive = item === tab;
+                    item.classList.toggle('is-active', isActive);
+                    item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                });
+                recipePanels.forEach(function (panel) {
+                    panel.classList.toggle('is-active', panel.id === targetId);
+                });
+            });
+        });
+    });
+</script>

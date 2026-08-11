@@ -19,15 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
             dotsContainer.appendChild(dot);
         });
 
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
-            updateUI();
-        });
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+                updateUI();
+            });
+        }
 
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
-            updateUI();
-        });
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+                updateUI();
+            });
+        }
 
         function updateUI() {
             const offset = -currentIndex * 100;
@@ -37,7 +41,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 2. MODAL & FORMULAR LOGIK ---
+    // --- 2. RECIPE TAB SWITCHER LOGIK ---
+    const recipeRadios = document.querySelectorAll('input[name="recipes"]');
+    recipeRadios.forEach((radio) => {
+        radio.addEventListener('change', (e) => {
+            // 1. Get corresponding label & target ID
+            const activeLabel = document.querySelector(`label[for="${e.target.id}"]`);
+            const targetId = activeLabel?.getAttribute('data-recipe-target');
+
+            // 2. Update navigation tabs
+            document.querySelectorAll('.recipe-nav-item').forEach((label) => {
+                label.classList.remove('is-active');
+                label.setAttribute('aria-selected', 'false');
+            });
+            activeLabel?.classList.add('is-active');
+            activeLabel?.setAttribute('aria-selected', 'true');
+
+            // 3. Update active panel
+            document.querySelectorAll('.recipe-panel').forEach((panel) => {
+                panel.classList.remove('is-active');
+            });
+            if (targetId) {
+                document.getElementById(targetId)?.classList.add('is-active');
+            }
+        });
+    });
+
+    // --- 3. MODAL & FORMULAR LOGIK ---
     const modal = document.getElementById('contactModal');
     const contactForm = document.getElementById('contactForm');
     const serviceSelect = document.getElementById('service');
@@ -55,50 +85,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const zipInput = document.getElementById('zip');
     const cityInput = document.getElementById('city');
 
-    // Funktion zur Steuerung der Küchen-Felder
     function updateExtraFields(serviceValue) {
         if (!workshopDetails || !ovenQuestion) return;
 
         if (serviceValue === 'Workshop' || serviceValue === 'Catering') {
             workshopDetails.style.display = 'block';
-            // Ofen-Frage NUR bei Workshop
             ovenQuestion.style.display = (serviceValue === 'Workshop') ? 'block' : 'none';
         } else {
             workshopDetails.style.display = 'none';
         }
     }
 
-    // Listener für manuelle Änderungen im Dropdown
     if (serviceSelect) {
         serviceSelect.addEventListener('change', (e) => updateExtraFields(e.target.value));
     }
 
-    // Modal öffnen & Service setzen
     openButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             const selectedService = btn.getAttribute('data-service');
             if (selectedService && serviceSelect) {
                 serviceSelect.value = selectedService;
-                updateExtraFields(selectedService); // Logik sofort triggern
+                updateExtraFields(selectedService);
             }
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         });
     });
 
-    // Hilfsfunktion zum Schließen
     const closeModal = () => {
         modal.style.display = 'none';
-        document.getElementById('successModal').style.display = 'none';
-        document.getElementById('errorModal').style.display = 'none';
+        const successModal = document.getElementById('successModal');
+        const errorModal = document.getElementById('errorModal');
+        if (successModal) successModal.style.display = 'none';
+        if (errorModal) errorModal.style.display = 'none';
         document.body.style.overflow = 'auto';
     };
 
     if (closeBtn) closeBtn.onclick = closeModal;
     window.onclick = (event) => { if (event.target === modal) closeModal(); };
 
-    // PLZ Suche
     if (zipInput) {
         zipInput.addEventListener('input', async (e) => {
             const zip = e.target.value;
@@ -120,20 +146,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     contactForm.addEventListener('submit', async function (e) {
         e.preventDefault();
-        // Honeypot Check
-        const honey = document.getElementById('honeypot_phone').value;
-        if (honey !== "") {
+        const honey = document.getElementById('honeypot_phone')?.value;
+        if (honey) {
             console.warn("Bot erkannt!");
-            // Wir tun so, als ob es geklappt hätte, senden aber nichts ab.
             this.reset();
             closeModal();
-            document.getElementById('successModal').style.display = 'block';
+            const successModal = document.getElementById('successModal');
+            if (successModal) successModal.style.display = 'block';
             return;
         }
+        
         const btn = this.querySelector('button[type="submit"]');
         const originalBtnText = btn.innerHTML;
 
-        // UI-Feedback: Sende-Status
         btn.innerHTML = "Wird in den Ofen geschoben...";
         btn.disabled = true;
         btn.style.opacity = "0.7";
@@ -148,20 +173,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                // ERFOLG
-                closeModal(); // Schließt das Formular-Modal
+                closeModal();
                 this.reset();
                 if (previewContainer) previewContainer.innerHTML = '';
-                document.getElementById('successModal').style.display = 'block';
+                const successModal = document.getElementById('successModal');
+                if (successModal) successModal.style.display = 'block';
             } else {
-                // SERVER-FEHLER (z.B. Formspree Limit erreicht)
                 throw new Error("Server-Antwort war nicht okay.");
             }
         } catch (error) {
-            // NETZWERK-FEHLER ODER SERVER-DOWN
-            document.getElementById('errorModal').style.display = 'block';
+            const errorModal = document.getElementById('errorModal');
+            if (errorModal) errorModal.style.display = 'block';
         } finally {
-            // Button wieder in Normalzustand versetzen
             btn.innerHTML = originalBtnText;
             btn.disabled = false;
             btn.style.opacity = "1";

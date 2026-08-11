@@ -1,29 +1,20 @@
 <!DOCTYPE html>
 <html readonly="readonly">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Teigtraum Tübingen | Pizza Workshops & Catering für Events</title>
-
-    <meta name="description"
-        content="Lerne die perfekte Pizza backen! Teigtraum bietet exklusive Pizza-Workshops und Live-Catering in Tübingen und Umgebung. Ideal für Teamevents und private Feiern.">
-
-    <meta name="keywords"
-        content="Pizza Workshop Tübingen, Pizza Catering, Teambuilding, Pizza backen lernen, Event Catering Tübingen">
-
+    <meta name="description" content="Lerne die perfekte Pizza backen! Teigtraum bietet exklusive Pizza-Workshops und Live-Catering in Tübingen und Umgebung. Ideal für Teamevents und private Feiern.">
+    <meta name="keywords" content="Pizza Workshop Tübingen, Pizza Catering, Teambuilding, Pizza backen lernen, Event Catering Tübingen">
     <meta property="og:title" content="Teigtraum - Dein Pizza-Erlebnis in Tübingen">
     <meta property="og:description" content="Workshops & Catering für die perfekte Gourmet-Pizza direkt bei dir.">
     <meta property="og:image" content="Logo_TEIGTRAUM.png">
 
     <link rel="stylesheet" href="styles.css" />
-    <link href="css/all.css" rel="stylesheet">
+    <link href="all.css" rel="stylesheet">
     <script src="slider.js"></script>
 </head>
-
 <body>
-
     <section id="site-header">
         <header>
             <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -39,329 +30,241 @@
     </section>
 
     <section class="css-tabs" aria-label="Services tabs">
+    <input type="radio" name="tabs" id="tab-team" checked>
+    <input type="radio" name="tabs" id="tab-catering">
+    <input type="radio" name="tabs" id="tab-recipes">
+    <input type="radio" name="tabs" id="tab-about-us">
 
-        <input type="radio" name="tabs" id="tab-team" checked>
-        <input type="radio" name="tabs" id="tab-catering">
-        <input type="radio" name="tabs" id="tab-about-us">
+    <div class="tab-labels">
+        <label for="tab-team" class="tab-label">Kurse</label>
+        <label for="tab-catering" class="tab-label">Catering</label>
+        <label for="tab-recipes" class="tab-label">Rezepte</label>
+        <label for="tab-about-us" class="tab-label">About me</label>
+    </div>
 
-        <div class="tab-labels">
-            <label for="tab-team" class="tab-label">Kurse</label>
+    <div class="page-bg" aria-hidden="true"></div>
 
-            <label for="tab-catering" class="tab-label">Catering</label>
+    <div class="tabs-panels" role="tabpanel">
+        <section id="panel-team" class="panel" aria-labelledby="tab-team">
+    <blockquote>
+        <p class="quote">Teamfähigkeit zeigt sich erst beim letzten Stück Pizza.</p>
+    </blockquote>
+    <div class="kurzuebersicht" aria-label="Kurzüberblick">
+        <h2>Dieser Kurs ist für dich, wenn...</h2>
+        <ul class="info-list">
+            <li class="info-item"><span class="info-label info-value">...du ein sicheres und einfaches Rezept für gute Pizza suchst</span></li>
+            <li class="info-item"><span class="info-label info-value">...du dich fragst warum deine Pizza nicht schmeckt wie beim Italiener</span></li>
+            <li class="info-item"><span class="info-label info-value">...du mit Freund:innen oder Kolleg:innen entspannt etwas Neues lernen möchtest</span></li>
+        </ul>
+    </div>
 
-            <label for="tab-about-us" class="tab-label">About me</label>
+    <div class="kurzuebersicht" aria-label="Kurzüberblick">
+        <h2>In Kürze</h2>
+        <div class="highlight-box">
+            <p class="lead">
+                Ein entspanntes Get-together mit deinen Liebsten, bei dem du ganz nebenbei lernst,
+                blitzschnell und absolut sicher die perfekte Gourmet-Pizza zu backen.
+            </p>
         </div>
+        <ul class="info-list">
+            <li class="info-item"><span class="info-label">Dauer:</span><span class="info-value">ca. 3 Stunden</span></li>
+            <li class="info-item"><span class="info-label">Teilnehmende:</span><span class="info-value">8–12 Personen</span></li>
+            <li class="info-item"><span class="info-label">Fokus:</span><span class="info-value">Praxisorientiertes Backen + Basics</span></li>
+            <li class="info-item"><span class="info-label">Vorkenntnisse:</span><span class="info-value">keine erforderlich</span></li>
+            <li class="info-item"><span class="info-label">Inklusive:</span><span class="info-value">Zutaten, Ofen, Werkzeug, Getränke, Anfahrt und Rezeptunterlagen</span></li>
+            <li class="info-item"><span class="info-label">Sprache:</span><span class="info-value">Deutsch (auf Wunsch Englisch)</span></li>
+            <li class="info-item"><span class="info-label">Ort:</span><span class="info-value">Ich komme zu euch, große Küche vorausgesetzt. Tübingen und Umgebung</span></li>
+            <li class="info-item"><span class="info-label">Preis:</span><span class="info-value">ab 40€ pro Person</span></li>
+        </ul>
+    </div>
 
-        <div class="page-bg" aria-hidden="true"></div>
-
-        <div class="tabs-panels" role="tabpanel">
-            <section id="panel-team" class="panel" aria-labelledby="tab-team">
-
-                <blockquote>
-                    <p class="quote">Teamfähigkeit zeigt sich erst beim letzten Stück Pizza.</p>
-                </blockquote>
-                <div class="kurzuebersicht" aria-label="Kurzüberblick">
-                    <h2>Dieser Kurs ist für dich, wenn...</h2>
-                    <ul class="info-list">
-                        <li class="info-item"><span class="info-label info-value">...du ein sicheres und einfaches
-                                Rezept
-                                für gute Pizza suchst</span></li>
-                        <li class="info-item"><span class="info-label info-value">...du dich fragst warum deine Pizza
-                                nicht
-                                schmeckt wie beim Italiener</span></li>
-                        <li class="info-item"><span class="info-label info-value">...du mit Freund:innen oder
-                                Kolleg:innen
-                                entspannt etwas Neues lernen möchtest</span></li>
-                    </ul>
-                </div>
-
-                <!-- <h2>Pizza Workshop</h2> -->
-
-                <div class="kurzuebersicht" aria-label="Kurzüberblick">
-                    <h2>In Kürze</h2>
-
-                    <div class="highlight-box">
-                        <p class="lead">
-                            Ein entspanntes Get-together mit deinen Liebsten, bei dem du ganz nebenbei lernst,
-                            blitzschnell und absolut sicher die perfekte Gourmet-Pizza zu backen.
-                        </p>
-                    </div>
-                    <ul class="info-list">
-                        <li class="info-item">
-                            <span class="info-label">Dauer:</span>
-                            <span class="info-value">ca. 3 Stunden</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label">Teilnehmende:</span>
-                            <span class="info-value">8–12 Personen</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label">Fokus:</span>
-                            <span class="info-value">Praxisorientiertes Backen + Basics</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label">Vorkenntnisse:</span>
-                            <span class="info-value">keine erforderlich</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label">Inklusive:</span>
-                            <span class="info-value">Zutaten, Ofen, Werkzeug, Getränke, Anfahrt und
-                                Rezeptunterlagen</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label">Sprache:</span>
-                            <span class="info-value">Deutsch (auf Wunsch Englisch)</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label">Ort:</span>
-                            <span class="info-value">Ich komme zu euch, große Küche vorausgesetzt. Tübingen und
-                                Umgebung</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label">Preis:</span>
-                            <span class="info-value">ab 40€ pro Person</span>
-                        </li>
-                    </ul>
-                </div>
-
-
-
-                <div class="carousel-wrapper">
-
-                    <div class="carousel-container">
-                        <button class="nav-btn prev" aria-label="Zurück">&#10094;</button>
-                        <button class="nav-btn next" aria-label="Weiter">&#10095;</button>
-
-                        <div class="insta-slider">
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="bilder/jessi/20260301-_MG_0866.jpg" alt="Pizza wirken" class="slider-img">
-                                </a>
-                            </div>
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="bilder/jessi/20260301-_MG_0884.jpg" alt="Ruhender Teig" class="slider-img">
-                                </a>
-                            </div>
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="bilder/jessi/20260301-_MG_0898.jpg" alt="Teigentnahme" class="slider-img">
-                                </a>
-                            </div>
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="bilder/jessi/20260301-_MG_0930.jpg" alt="Pizza im Ofen" class="slider-img">
-                                </a>
-                            </div>
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="bilder/jessi/20260301-_MG_0939.jpg" alt="portionierter Teig" class="slider-img">
-                                </a>
-                            </div>
-                            
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="bilder/jessi/20260301-_MG_0960.jpg" alt="portionierter Teig" class="slider-img">
-                                </a>
-                            </div>
-                            
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="bilder/jessi/20260301-_MG_0970.jpg" alt="portionierter Teig" class="slider-img">
-                                </a>
-                            </div>
-                            
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="bilder/jessi/20260301-_MG_0977.jpg" alt="portionierter Teig" class="slider-img">
-                                </a>
-                            </div>
-                            
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="bilder/jessi/20260301-_MG_0997.jpg" alt="portionierter Teig" class="slider-img">
-                                </a>
-                            </div>
-                            
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="bilder/jessi/20260301-_MG_1013.jpg" alt="portionierter Teig" class="slider-img">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="dots-container" id="dotsContainer"></div>
-                    </div>
-                </div>
-
-                <h3>Kursinhalt</h3>
-                <ul class="info-list">
-                    <li class="info-item"><span class="info-label info-value">Selbstständiges Zubereiten (und mit nach
-                            Hause nehmen)
-                            des Teigs</span></li>
-                    <li class="info-item"><span class="info-label info-value">New York Style und Napoletana</span></li>
-                    <li class="info-item"><span class="info-label info-value">Direkt-, Indirekt-, Kalt- und
-                            Warmführung</span></li>
-                    <li class="info-item"><span class="info-label info-value">Teig zu Pizza formen und belegen</span>
-                    </li>
-                    <li class="info-item"><span class="info-label info-value">Pizza schieben, backen und drehen</span>
-                    </li>
-                    <li class="info-item"><span class="info-label info-value">Biochemische Prozesse und deren
-                            Auswirkungen</span>
-                    </li>
-                </ul>
-
-                <div class="contact-section">
-                    <a class="cta-button js-open-modal" data-service="Workshop" href="javascript:void(0)">Jetzt Workshop
-                        buchen</a>
-                    <a href="Handout.pdf" class="download-button" download>
-                        <i class="fas fa-download"></i> Handout (DE)
-                    </a>
-                </div>
-            </section>
-
-            <section id="panel-catering" class="panel" aria-labelledby="tab-catering">
-                <blockquote>
-                    <p class="quote">Klar kann man sich Pizza liefern lassen. Man sollte dann halt keine Pizza
-                        erwarten.
-                </blockquote>
-                <div class="kurzuebersicht" aria-label="Kurzüberblick">
-                    <h2>In Kürze</h2>
-
-                    <div class="highlight-box">
-                        <p class="lead">
-                            Heisse, knusprige Pizza direkt aus dem Ofen, frisch belegt mit deinen Lieblingszutaten,
-                            entspannt bei dir zu Hause.
-                        </p>
-                    </div>
-                    <ul class="info-list">
-                        <li class="info-item">
-                            <span class="info-label info-value">Ofenfrische Pizza Napoletanischer Art</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label info-value">8-25 Personen</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label info-value">5 Minuten pro Pizza</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label info-value">Belag individuell wählbar</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label info-value">Ich backe bei Dir, Küche vorausgesetzt. Tübingen und
-                                Umgebung</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label info-value">Ohne Geschirr oder Mobiliar. Ich reinige was ich
-                                benutze</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label info-value">ab 15€ pro Person</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <h2>Live Baking</h2>
-                <p class="lead">
-                    So frische Pizza gibt es in keinem Restaurant! Ich mache Deine Küche zur Pizzeria und backe nur für
-                    Dich. Ideal für Veranstaltungen mit casual Dining Konzept und Menschen, die Wert auf Qualität legen.
-                </p>
-
-                <div class="carousel-wrapper">
-                    <div class="carousel-container">
-                        <button class="nav-btn prev" aria-label="Zurück">&#10094;</button>
-                        <button class="nav-btn next" aria-label="Weiter">&#10095;</button>
-
-                        <div class="insta-slider">
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="bilder/260203/pizza/margerita_mit_splash.png"
-                                        alt="Pizza Margherita frisch aus dem Ofen" class="slider-img">
-                                </a>
-                            </div>
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="vegana_centered.png" alt="Vegane Tonno Variante Napoletaninscher Art"
-                                        class="slider-img">
-                                </a>
-                            </div>
-                            
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="bilder/random/pulled_pilz.png.png" alt="Pulled Pilz"
-                                        class="slider-img">
-                                </a>
-                            </div>
-                            
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="bilder/random/salami_zwiebel.png" alt="Salami und Zwiebel"
-                                        class="slider-img">
-                                </a>
-                            </div>
-                            
-                            <div class="insta-item">
-                                <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank">
-                                    <img src="bilder/random/zucchini_champignon.png" alt="Zucchini mit Champignons"
-                                        class="slider-img">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="dots-container" id="dotsContainer"></div>
-                    </div>
-                </div>
-
-                <div class="contact-section">
-                    <a class="cta-button js-open-modal" data-service="Catering" href="javascript:void(0)">Jetzt Catering
-                        buchen</a>
-                </div>
-            </section>
-
-            <section id="panel-about-us" class="panel" aria-labelledby="tab-about-us">
-                <blockquote>
-                    <p class="quote">Andere glücklich machen macht mich glücklich. Und Menschen mit Pizza sind selten
-                        unglücklich.</p>
-                </blockquote>
-                <div class="kurzuebersicht" aria-label="Kurzüberblick">
-                    <h2>In Kürze</h2>
-                    <ul class="info-list">
-                        <li class="info-item">
-                            <span class="info-label info-value">Softwareentwickler bei Bosch</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label info-value">Ich backe seit über 10 Jahren Pizza, seit 2025
-                                professionell</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label info-value">Mein Traum ist eine eigene Pizzeria und ich arbeite
-                                schrittweise
-                                darauf hin</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-label info-value">Ich spiele Gitarre, DnD und Frisbee, bouldere und
-                                backe</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <h2>Ich...</h2>
-                <p class="lead">
-                    ...habe keine außergewöhnliche Pizzaiolo-Origin Story. Pizza ist leicht zu lernen, schwer zu
-                    meistern und das treibt
-                    mich ebenso an wie die Möglichkeit, heißes Glück zu verteilen. Während die meisten Pizzaioli seit
-                    ihrer Kindheit Pizza backen, habe ich mir das Wissen und die Fertigkeiten in den letzten 10 Jahren
-                    autodidaktisch sowie in mehreren Kursen angeeignet und 2025 begonnen, professionell zu backen.
-                </p>
-
-                <div class="insta-cta">
-                    <p>Willst du sehen, was gerade im Ofen landet?</p>
-                    <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank" class="insta-link">
-                        <i class="fab fa-instagram"></i> Folge mir auf Instagram
-                    </a>
-                </div>
+    <div class="carousel-wrapper">
+        <div class="carousel-container">
+            <button class="nav-btn prev" aria-label="Zurück">&#10094;</button>
+            <button class="nav-btn next" aria-label="Weiter">&#10095;</button>
+            <div class="insta-slider">
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="bilder/jessi/20260301-_MG_0866.jpg" alt="Pizza wirken" class="slider-img"></a></div>
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="bilder/jessi/20260301-_MG_0884.jpg" alt="Ruhender Teig" class="slider-img"></a></div>
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="bilder/jessi/20260301-_MG_0898.jpg" alt="Teigentnahme" class="slider-img"></a></div>
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="bilder/jessi/20260301-_MG_0930.jpg" alt="Pizza im Ofen" class="slider-img"></a></div>
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="bilder/jessi/20260301-_MG_0939.jpg" alt="portionierter Teig" class="slider-img"></a></div>
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="bilder/jessi/20260301-_MG_0960.jpg" alt="portionierter Teig" class="slider-img"></a></div>
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="bilder/jessi/20260301-_MG_0970.jpg" alt="portionierter Teig" class="slider-img"></a></div>
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="bilder/jessi/20260301-_MG_0977.jpg" alt="portionierter Teig" class="slider-img"></a></div>
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="bilder/jessi/20260301-_MG_0997.jpg" alt="portionierter Teig" class="slider-img"></a></div>
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="bilder/jessi/20260301-_MG_1013.jpg" alt="portionierter Teig" class="slider-img"></a></div>
+            </div>
+            <div class="dots-container" id="dotsContainer"></div>
         </div>
-    </section>
+    </div>
+
+    <h3>Kursinhalt</h3>
+    <ul class="info-list">
+        <li class="info-item"><span class="info-label info-value">Selbstständiges Zubereiten (und mit nach Hause nehmen) des Teigs</span></li>
+        <li class="info-item"><span class="info-label info-value">New York Style und Napoletana</span></li>
+        <li class="info-item"><span class="info-label info-value">Direkt-, Indirekt-, Kalt- und Warmführung</span></li>
+        <li class="info-item"><span class="info-label info-value">Teig zu Pizza formen und belegen</span></li>
+        <li class="info-item"><span class="info-label info-value">Pizza schieben, backen und drehen</span></li>
+        <li class="info-item"><span class="info-label info-value">Biochemische Prozesse und deren Auswirkungen</span></li>
+    </ul>
+
+    <div class="contact-section">
+        <a class="cta-button js-open-modal" data-service="Workshop" href="javascript:void(0)">Jetzt Workshop buchen</a>
+        <a href="Handout.pdf" class="download-button" download><i class="fas fa-download"></i> Handout (DE)</a>
+    </div>
+</section>
+
+        <section id="panel-catering" class="panel" aria-labelledby="tab-catering">
+    <blockquote>
+        <p class="quote">Klar kann man sich Pizza liefern lassen. Man sollte dann halt keine Pizza erwarten.</p>
+    </blockquote>
+    <div class="kurzuebersicht" aria-label="Kurzüberblick">
+        <h2>In Kürze</h2>
+        <div class="highlight-box">
+            <p class="lead">
+                Heisse, knusprige Pizza direkt aus dem Ofen, frisch belegt mit deinen Lieblingszutaten,
+                entspannt bei dir zu Hause.
+            </p>
+        </div>
+        <ul class="info-list">
+            <li class="info-item"><span class="info-label info-value">Ofenfrische Pizza Napoletanischer Art</span></li>
+            <li class="info-item"><span class="info-label info-value">8-25 Personen</span></li>
+            <li class="info-item"><span class="info-label info-value">5 Minuten pro Pizza</span></li>
+            <li class="info-item"><span class="info-label info-value">Belag individuell wählbar</span></li>
+            <li class="info-item"><span class="info-label info-value">Ich backe bei Dir, Küche vorausgesetzt. Tübingen und Umgebung</span></li>
+            <li class="info-item"><span class="info-label info-value">Ohne Geschirr oder Mobiliar. Ich reinige was ich benutze</span></li>
+            <li class="info-item"><span class="info-label info-value">ab 15€ pro Person</span></li>
+        </ul>
+    </div>
+
+    <h2>Live Baking</h2>
+    <p class="lead">
+        So frische Pizza gibt es in keinem Restaurant! Ich mache Deine Küche zur Pizzeria und backe nur für Dich.
+        Ideal für Veranstaltungen mit casual Dining Konzept und Menschen, die Wert auf Qualität legen.
+    </p>
+
+    <div class="carousel-wrapper">
+        <div class="carousel-container">
+            <button class="nav-btn prev" aria-label="Zurück">&#10094;</button>
+            <button class="nav-btn next" aria-label="Weiter">&#10095;</button>
+            <div class="insta-slider">
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="bilder/260203/pizza/margerita_mit_splash.png" alt="Pizza Margherita frisch aus dem Ofen" class="slider-img"></a></div>
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="vegana_centered.png" alt="Vegane Tonno Variante Napoletaninscher Art" class="slider-img"></a></div>
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="bilder/random/pulled_pilz.png" alt="Pulled Pilz" class="slider-img"></a></div>
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="bilder/random/salami_zwiebel.png" alt="Salami und Zwiebel" class="slider-img"></a></div>
+                <div class="insta-item"><a href="https://www.instagram.com/teigtraumtuebingen" target="_blank"><img src="bilder/random/zucchini_champignon.png" alt="Zucchini mit Champignons" class="slider-img"></a></div>
+            </div>
+            <div class="dots-container" id="dotsContainer"></div>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <a class="cta-button js-open-modal" data-service="Catering" href="javascript:void(0)">Jetzt Catering buchen</a>
+    </div>
+</section>
+
+        <section id="panel-recipes" class="panel" aria-labelledby="tab-recipes">
+    <blockquote>
+        <p class="quote">Der wichtigste Schritt beim Pizza backen ist jeder Einzelne.</p>
+    </blockquote>
+
+    <div class="recipe-shell">
+        <nav class="recipe-nav" aria-label="Rezeptauswahl">
+            <input type="radio" name="recipes" id="recipe-napoletana" checked>
+            <label for="recipe-napoletana" class="recipe-nav-item is-active" data-recipe-target="recipe-panel-napoletana" role="tab" aria-selected="true">Pizza Napoletana</label>
+
+            <input type="radio" name="recipes" id="recipe-ny-style">
+            <label for="recipe-ny-style" class="recipe-nav-item" data-recipe-target="recipe-panel-ny-style" role="tab" aria-selected="false">Pizza New York Style</label>
+
+            <input type="radio" name="recipes" id="recipe-future">
+            <label for="recipe-future" class="recipe-nav-item recipe-nav-item--future" data-recipe-target="recipe-panel-future" role="tab" aria-selected="false">Weitere Rezepte folgen</label>
+        </nav>
+
+        <div class="recipe-panels">
+            <article class="recipe-panel is-active" id="recipe-panel-napoletana">
+                <div class="recipe-header">
+                    <h2>Teig</h2>
+                    <p class="recipe-meta">Rezept für 1 Person / 4 Personen</p>
+                </div>
+
+                <div class="recipe-table" role="list">
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">95 / 380 g Wasser</div><div class="recipe-step"></div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">0,06 / 0,22 g Instanthefe</div><div class="recipe-step"></div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">2-3 / 9-12 g Salz</div><div class="recipe-step"></div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">153 / 610 g Mehl</div><div class="recipe-step">Vermischen.</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount"></div><div class="recipe-step">Nach 30 Minuten die erste Vierfachfaltung durchführen.</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount"></div><div class="recipe-step">Nach weiteren 30 Minuten die zweite Vierfachfaltung durchführen.</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">18h</div><div class="recipe-step">Abgedeckt bei Raumtemperatur gehen lassen. In</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">250 g</div><div class="recipe-step">große Teigbälle unterteilen.</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">Optional 24–48h</div><div class="recipe-step">im Kühlschrank reifen lassen.</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">3h</div><div class="recipe-step">Vor dem Backen erneut ruhen lassen.</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount"></div><div class="recipe-step">Mit Rand wirken, belegen und ca. 1 Minute bei</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">450–480 °C</div><div class="recipe-step">backen. Kurz auf einem Gitter abkühlen lassen und servieren.</div></div>
+                </div>
+            </article>
+
+            <article class="recipe-panel" id="recipe-panel-ny-style">
+                <div class="recipe-header">
+                    <h2>Teig</h2>
+                    <p class="recipe-meta">Rezepte für 1 Person / 4 Personen</p>
+                </div>
+
+                <div class="recipe-table" role="list">
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">4 / 15g Backmalz</div><div class="recipe-step">mit</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">149 / 594g Mehl</div><div class="recipe-step">vermischen, dass Malz nicht klumpt. Mit</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">94 / 374g Wasser</div><div class="recipe-step"></div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">5 / 20g Olivenöl</div><div class="recipe-step"></div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">0,08 / 0,32g Instanthefe</div><div class="recipe-step"></div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">2-4 / 11-15g Salz</div><div class="recipe-step">vermischen</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount"></div><div class="recipe-step">Nach 30 Minuten die erste Vierfachfaltung durchführen.</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount"></div><div class="recipe-step">Nach weiteren 30 Minuten die zweite Vierfachfaltung durchführen.</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">18h</div><div class="recipe-step">abgedeckt bei Raumtemperatur gehen lassen. In</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">250 g</div><div class="recipe-step">große Teigbälle unterteilen.</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">Optional 24–48h</div><div class="recipe-step">im Kühlschrank reifen lassen.</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">3h</div><div class="recipe-step">Vor dem Backen erneut ruhen lassen.</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount"></div><div class="recipe-step">Ohne Rand wirken, belegen und ca. 1 Minute bei</div></div>
+                    <div class="recipe-row" role="listitem"><div class="recipe-amount">450–480 °C</div><div class="recipe-step">backen. Kurz auf einem Gitter abkühlen lassen und servieren.</div></div>
+                </div>
+            </article>
+
+            <article class="recipe-panel recipe-panel--future" id="recipe-panel-future">
+                <h2>Weitere Rezepte</h2>
+                <p class="lead">Ich ergänze hier künftig weitere Rezepte direkt weiter.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+        <section id="panel-about-us" class="panel" aria-labelledby="tab-about-us">
+    <blockquote>
+        <p class="quote">Andere glücklich machen macht mich glücklich. Und Menschen mit Pizza sind selten unglücklich.</p>
+    </blockquote>
+    <div class="kurzuebersicht" aria-label="Kurzüberblick">
+        <h2>In Kürze</h2>
+        <ul class="info-list">
+            <li class="info-item"><span class="info-label info-value">Softwareentwickler bei Bosch</span></li>
+            <li class="info-item"><span class="info-label info-value">Ich backe seit über 10 Jahren Pizza, seit 2025 professionell</span></li>
+            <li class="info-item"><span class="info-label info-value">Mein Traum ist eine eigene Pizzeria und ich arbeite schrittweise darauf hin</span></li>
+            <li class="info-item"><span class="info-label info-value">Ich spiele Gitarre, DnD und Frisbee, bouldere und backe</span></li>
+        </ul>
+    </div>
+
+    <h2>Ich...</h2>
+    <p class="lead">
+        ...habe keine außergewöhnliche Pizzaiolo-Origin Story. Pizza ist leicht zu lernen, schwer zu meistern und das treibt mich ebenso an wie die Möglichkeit, heißes Glück zu verteilen. Während die meisten Pizzaioli seit ihrer Kindheit Pizza backen, habe ich mir das Wissen und die Fertigkeiten in den letzten 10 Jahren autodidaktisch sowie in mehreren Kursen angeeignet und 2025 begonnen, professionell zu backen.
+    </p>
+
+    <div class="insta-cta">
+        <p>Willst du sehen, was gerade im Ofen landet?</p>
+        <a href="https://www.instagram.com/teigtraumtuebingen" target="_blank" class="insta-link">
+            <i class="fab fa-instagram"></i> Folge mir auf Instagram
+        </a>
+    </div>
+</section>
+
+    </div>
+</section>
+
 
     <footer id="site-footer">
         <a href="impressum.html" class="impressum-link">Impressum</a> |
@@ -373,7 +276,6 @@
             <span class="close-modal">&times;</span>
             <h2>Anfrage stellen</h2>
             <p>Lass uns gemeinsam deine Pizza-Träume planen.</p>
-
             <form id="contactForm" action="https://formspree.io/f/xkovonjl" method="POST">
                 <div class="form-group">
                     <label for="service">Interesse an:*</label>
@@ -382,8 +284,6 @@
                         <option value="Catering">Pizza-Catering</option>
                     </select>
                 </div>
-
-                
                 <div class="form-row">
                     <div class="form-group" style="flex: 0 0 50%;">
                         <label for="participants">Für wieviel Personen:*</label>
@@ -394,7 +294,6 @@
                         <input type="date" id="event_date" name="event_date" required>
                     </div>
                 </div>
-
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Name:*</label>
@@ -405,7 +304,6 @@
                         <input type="email" id="email" name="email" placeholder="beispiel@mail.de" required>
                     </div>
                 </div>
-
                 <div class="form-row">
                     <div class="form-group" style="flex: 0 0 30%;">
                         <label for="zip">PLZ:*</label>
@@ -416,7 +314,6 @@
                         <input type="text" id="city" name="city" readonly tabindex="-1">
                     </div>
                 </div>
-
                 <div class="form-row">
                     <div class="form-group" style="flex: 0 0 70%;">
                         <label for="street">Straße:*</label>
@@ -427,60 +324,47 @@
                         <input type="text" id="house_number" name="house_number" placeholder="42" required>
                     </div>
                 </div>
-
-                <div id="workshop-details"
-                    style="display: none; background: #fff9f0; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid var(--super-active-color);">
+                <div id="workshop-details" style="display: none; background: #fff9f0; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid var(--super-active-color);">
                     <h3 style="font-size: 1rem; margin-bottom: 10px;">Küchen-Check</h3>
-
                     <div class="form-group">
                         <label for="kitchen_size">Wie groß ist die Küche ca. (in m²)?</label>
                         <input type="number" id="kitchen_size" name="kitchen_size" placeholder="z.B. 6">
                     </div>
-
                     <div class="form-group">
                         <label for="kitchen_workarea">Wie groß ist die Arbeitsfläche ca. (in m²)?</label>
                         <input type="number" id="kitchen_workarea" name="kitchen_workarea" placeholder="z.B. 4">
                     </div>
-
                     <div class="form-group" id="oven-question-container">
                         <label>Ist ein normaler Haushaltsofen vorhanden?</label>
                         <div style="display: flex; gap: 15px; margin-top: 5px;">
-                            <label style="font-weight: normal;"><input type="radio" name="household_oven" value="ja">
-                                Ja</label>
-                            <label style="font-weight: normal;"><input type="radio" name="household_oven" value="nein">
-                                Nein</label>
+                            <label style="font-weight: normal;"><input type="radio" name="household_oven" value="ja"> Ja</label>
+                            <label style="font-weight: normal;"><input type="radio" name="household_oven" value="nein"> Nein</label>
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="message">Kurze Nachricht (optional):</label>
                     <textarea id="message" name="message" rows="3" placeholder="Zutaten, Anlässe, etc."></textarea>
                 </div>
-
                 <div class="honeypot-field" aria-hidden="true">
                     <label for="honeypot_phone">Bitte schreibe eine Geschichte</label>
                     <input type="text" id="honeypot_phone" name="honeypot_phone" tabindex="-1" autocomplete="off">
                 </div>
-
                 <div class="form-group" style="font-size: 0.85rem; color: #636e72; margin-top: 15px;">
                     Mit dem Absenden der Anfrage erklärst du dich mit der Verarbeitung deiner Daten gemäß unserer
                     <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> einverstanden.
                 </div>
-
-                <button type="submit" id="submitBtn" class="cta-button"
-                    style="width: 100%; margin-top: 10px; animation: none;">Anfrage verbindlich absenden</button>
+                <button type="submit" id="submitBtn" class="cta-button" style="width: 100%; margin-top: 10px; animation: none;">Anfrage verbindlich absenden</button>
             </form>
         </div>
     </div>
+
     <div id="successModal" class="modal">
         <div class="modal-content" style="text-align: center; padding: 40px;">
             <div class="status-icon" style="font-size: 60px; margin-bottom: 20px;">🍕</div>
             <h2 style="color: #2d3436; margin-bottom: 15px;">Anfrage versendet!</h2>
-            <p style="color: #636e72; line-height: 1.6;">Vielen Dank! Deine Pizza-Anfrage ist sicher gelandet. Ich melde
-                mich so schnell wie möglich bei dir.</p>
-            <button onclick="document.getElementById('successModal').style.display='none'" class="cta-button"
-                style="margin-top: 25px; width: 100%;">Super, bis dann!</button>
+            <p style="color: #636e72; line-height: 1.6;">Vielen Dank! Deine Pizza-Anfrage ist sicher gelandet. Ich melde mich so schnell wie möglich bei dir.</p>
+            <button onclick="document.getElementById('successModal').style.display='none'" class="cta-button" style="margin-top: 25px; width: 100%;">Super, bis dann!</button>
         </div>
     </div>
 
@@ -488,32 +372,32 @@
         <div class="modal-content" style="text-align: center; padding: 40px; border-top: 5px solid #ff7675;">
             <div style="font-size: 60px; margin-bottom: 20px;">👨‍🍳💨</div>
             <h2 style="color: #2d3436; margin-bottom: 15px;">Da ist was angebrannt...</h2>
-            <p id="errorMessage" style="color: #636e72; line-height: 1.6;">Leider gab es ein Problem beim Senden deiner
-                Anfrage. Bitte versuch es später noch einmal oder schreib mir direkt per Mail.</p>
-            <button onclick="document.getElementById('errorModal').style.display='none'" class="cta-button"
-                style="margin-top: 25px; width: 100%; background-color: #ff7675;">Schließen & nochmal versuchen</button>
+            <p id="errorMessage" style="color: #636e72; line-height: 1.6;">Leider gab es ein Problem beim Senden deiner Anfrage. Bitte versuch es später noch einmal oder schreib mir direkt per Mail.</p>
+            <button onclick="document.getElementById('errorModal').style.display='none'" class="cta-button" style="margin-top: 25px; width: 100%; background-color: #ff7675;">Schließen & nochmal versuchen</button>
         </div>
     </div>
 
+
     <script type="application/ld+json">
     {
-    "@context": "https://schema.org",
-    "@type": "FoodService",
-    "name": "Teigtraum Tübingen",
-    "description": "Pizza Workshops und Catering-Service",
-    "provider": {
+      "@context": "https://schema.org",
+      "@type": "FoodService",
+      "name": "Teigtraum Tübingen",
+      "description": "Pizza Workshops und Catering-Service",
+      "provider": {
         "@type": "Person",
         "name": "Dein Name"
-    },
-    "areaServed": "Tübingen, Deutschland",
-    "hasOfferCatalog": {
+      },
+      "areaServed": "Tübingen, Deutschland",
+      "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Pizza Services",
         "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pizza Workshop" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pizza Catering" } }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pizza Workshop" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pizza Catering" } }
         ]
-    }
+      }
     }
     </script>
 </body>
+</html>

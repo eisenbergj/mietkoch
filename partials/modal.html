@@ -1,0 +1,105 @@
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Anfrage stellen</h2>
+        <p>Lass uns gemeinsam deine Pizza-Träume planen.</p>
+        <form id="contactForm" action="https://formspree.io/f/xkovonjl" method="POST">
+            <div class="form-group">
+                <label for="service">Interesse an:*</label>
+                <select id="service" name="service" required>
+                    <option value="Workshop">Pizza-Workshop</option>
+                    <option value="Catering">Pizza-Catering</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <div class="form-group" style="flex: 0 0 50%;">
+                    <label for="participants">Für wieviel Personen:*</label>
+                    <input type="text" id="participants" name="participants" placeholder="z.B. 12" required>
+                </div>
+                <div class="form-group" style="flex: 0 0 50%;">
+                    <label for="event_date">Datum:*</label>
+                    <input type="date" id="event_date" name="event_date" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Name:*</label>
+                    <input type="text" id="name" name="name" placeholder="Dein Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mail:*</label>
+                    <input type="email" id="email" name="email" placeholder="beispiel@mail.de" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group" style="flex: 0 0 30%;">
+                    <label for="zip">PLZ:*</label>
+                    <input type="text" id="zip" name="zip" maxlength="5" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">Stadt:</label>
+                    <input type="text" id="city" name="city" readonly tabindex="-1">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group" style="flex: 0 0 70%;">
+                    <label for="street">Straße:*</label>
+                    <input type="text" id="street" name="street" placeholder="Musterstraße" required>
+                </div>
+                <div class="form-group">
+                    <label for="house_number">Nr.:*</label>
+                    <input type="text" id="house_number" name="house_number" placeholder="42" required>
+                </div>
+            </div>
+            <div id="workshop-details" style="display: none; background: #fff9f0; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid var(--super-active-color);">
+                <h3 style="font-size: 1rem; margin-bottom: 10px;">Küchen-Check</h3>
+                <div class="form-group">
+                    <label for="kitchen_size">Wie groß ist die Küche ca. (in m²)?</label>
+                    <input type="number" id="kitchen_size" name="kitchen_size" placeholder="z.B. 6">
+                </div>
+                <div class="form-group">
+                    <label for="kitchen_workarea">Wie groß ist die Arbeitsfläche ca. (in m²)?</label>
+                    <input type="number" id="kitchen_workarea" name="kitchen_workarea" placeholder="z.B. 4">
+                </div>
+                <div class="form-group" id="oven-question-container">
+                    <label>Ist ein normaler Haushaltsofen vorhanden?</label>
+                    <div style="display: flex; gap: 15px; margin-top: 5px;">
+                        <label style="font-weight: normal;"><input type="radio" name="household_oven" value="ja"> Ja</label>
+                        <label style="font-weight: normal;"><input type="radio" name="household_oven" value="nein"> Nein</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Kurze Nachricht (optional):</label>
+                <textarea id="message" name="message" rows="3" placeholder="Zutaten, Anlässe, etc."></textarea>
+            </div>
+            <div class="honeypot-field" aria-hidden="true">
+                <label for="honeypot_phone">Bitte schreibe eine Geschichte</label>
+                <input type="text" id="honeypot_phone" name="honeypot_phone" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="form-group" style="font-size: 0.85rem; color: #636e72; margin-top: 15px;">
+                Mit dem Absenden der Anfrage erklärst du dich mit der Verarbeitung deiner Daten gemäß unserer
+                <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> einverstanden.
+            </div>
+            <button type="submit" id="submitBtn" class="cta-button" style="width: 100%; margin-top: 10px; animation: none;">Anfrage verbindlich absenden</button>
+        </form>
+    </div>
+</div>
+
+<div id="successModal" class="modal">
+    <div class="modal-content" style="text-align: center; padding: 40px;">
+        <div class="status-icon" style="font-size: 60px; margin-bottom: 20px;">🍕</div>
+        <h2 style="color: #2d3436; margin-bottom: 15px;">Anfrage versendet!</h2>
+        <p style="color: #636e72; line-height: 1.6;">Vielen Dank! Deine Pizza-Anfrage ist sicher gelandet. Ich melde mich so schnell wie möglich bei dir.</p>
+        <button onclick="document.getElementById('successModal').style.display='none'" class="cta-button" style="margin-top: 25px; width: 100%;">Super, bis dann!</button>
+    </div>
+</div>
+
+<div id="errorModal" class="modal">
+    <div class="modal-content" style="text-align: center; padding: 40px; border-top: 5px solid #ff7675;">
+        <div style="font-size: 60px; margin-bottom: 20px;">👨‍🍳💨</div>
+        <h2 style="color: #2d3436; margin-bottom: 15px;">Da ist was angebrannt...</h2>
+        <p id="errorMessage" style="color: #636e72; line-height: 1.6;">Leider gab es ein Problem beim Senden deiner Anfrage. Bitte versuch es später noch einmal oder schreib mir direkt per Mail.</p>
+        <button onclick="document.getElementById('errorModal').style.display='none'" class="cta-button" style="margin-top: 25px; width: 100%; background-color: #ff7675;">Schließen & nochmal versuchen</button>
+    </div>
+</div>
